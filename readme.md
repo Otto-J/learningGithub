@@ -16,3 +16,11 @@ Github初学练习
 - 新建一个readme.txt文件，输入第一行文字
 - git add readme.txt 
 - git commit -m "输入更新内容的概要，用以表述更新内容和作用"
+
+- - - 
+-  修改readme.txt
+-  git status
+
+- - -
+
+sdfadf

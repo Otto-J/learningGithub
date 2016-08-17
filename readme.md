@@ -93,5 +93,26 @@ Github初学练习
 - 在github中新建仓库 create a new repo
 - 输入相关信息，点击新建仓库
 - 接下俩把本地仓库推送到github
-- $ git remote add origin git@github.com:github用户名/learningGithub.git
-yeah~我的文字在github上出现啦~~~
+ 
+```
+$ git remote add origin git@github.com:github用户名/learningGithub.git
+```
+- 关联后使用，来第一次推送master所有分支内容
+```
+git push -u origin master
+```
+
+###yeah~我的文字在github上出现啦~###
+
+- - -
+####从远程库克隆####
+- 现在github上新建仓库 aa
+- 在本地使用
+```
+$ git cloe git@github.com:帐户名/aa.git
+```
+
+- git支持多种协议，ssh比https速度更快
+
+---
+

@@ -72,4 +72,9 @@ Github初学练习
         git reset --hard HEAD^  (版本回退)
 
 - - - 
+####删除文件####
+- 将待删除文件 rm test.txt
+- 通过git status可以看到以下两个选项
+- git rm test.txt 从版本库中也删除
+- git checkout -- test.txt 从版本库中恢复到最新版本
 

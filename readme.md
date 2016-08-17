@@ -101,6 +101,10 @@ $ git remote add origin git@github.com:github用户名/learningGithub.git
 ```
 git push -u origin master
 ```
+以后每次使用一下代码来同步：
+```
+$ git push origin master
+```
 
 ###yeah~我的文字在github上出现啦~###
 

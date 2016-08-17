@@ -130,13 +130,11 @@ $ git cloe git@github.com:帐户名/aa.git
 - 创建 dev分支，然后切换到dev分支
 ```
 git checkout -b dev
-Switched to a new branch 'dev'
 ```
 checkout -b 表示创建并切换，相当于两条命令：
 ```
 git branch dev
 git checkout dev
-Switched to branch 'dev'
 ```
 - 用 git branch 来查看当前分支
 ```
@@ -168,3 +166,4 @@ git merge dev
 - git branch -d <name>删除分支
 
 ---
+我在dev分支内容里追加了这条信息。

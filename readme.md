@@ -89,4 +89,9 @@ Github初学练习
 - 名字可以设定为你当前办公环境，用以区分。
  
 - - -
- 
+####添加远程库####
+- 在github中新建仓库 create a new repo
+- 输入相关信息，点击新建仓库
+- 接下俩把本地仓库推送到github
+- $ git remote add origin git@github.com:github用户名/learningGithub.git
+yeah~我的文字在github上出现啦~~~

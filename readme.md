@@ -36,7 +36,7 @@ Github初学练习
 - 如果需要回退的话，有以下操作
 - 首先HEAD表示当前版本，HEAD^ 表示上个版本 HEAD~100表示前100个版本
 - 回退需要用到git reset
-- git reset --hard HEAD^
+- git reset --hard HEAD^  head可以用小写
 - 想恢复到之前最新的话，需要把head 变成对应版本的数字前几位
 - git reflog是git用来记录每一次命令的，在这里可以看到之前最新版本的数字代码
 

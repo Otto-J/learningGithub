@@ -41,4 +41,35 @@ Github初学练习
 - git reflog是git用来记录每一次命令的，在这里可以看到之前最新版本的数字代码
 
 - - -
+####工作区和暂存区####
+- 工作区Working Directory概念是指在硬盘上创建的git文件夹
+- 工作区里有一个.git隐藏目录，这个称之为git版本库
+- Git版本库里存了很多东西，比较重要的是stage或者index的暂存区
+- 已经git自动穿件的第一个分支master，指向master的一个指针head
+- 因为我们存在唯一一个master分支，所以，git add,git commit是往master分支上提交修改
+- 需要提交的文件先放在暂存区，咱后暂存区一次性提交所有修改
+
+####管理修改####
+- 先add，在commit。如果先add了，继续修改，在commit，不会增加修改内容，原因是暂存区里没有修改后的add
+
+- - -
+####撤销修改####
+- git checkout --file可以discard changes in working directory丢弃工作区的修改
+
+对于文件 myfile.txt
+
+① 修改后 未add（添加到暂存区） 需要撤销修改时：
+        git checkout -- myfile.txt 或 手动删除工作区修改
+        工作区 ： clean  暂存区： clean
+② 修改后 add了（未commit） 再次修改文件  要撤销第二次修改时：
+        git checkout -- myfile.txt (将暂存区恢复到工作区)
+        暂存区有第一次的修改需要commit
+③ 修改后 add了（未commit），需要撤销修改时：
+        git reset HEAD myfile.txt (将暂存区修改删除)
+        此时工作区的修改还未撤销
+        git checkout -- myfile.txt (撤销工作区修改)
+④ 修改后 add并commit了，需要撤销修改时：
+        git reset --hard HEAD^  (版本回退)
+
+- - - 
 

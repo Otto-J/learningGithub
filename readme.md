@@ -78,3 +78,15 @@ Github初学练习
 - git rm test.txt 从版本库中也删除
 - git checkout -- test.txt 从版本库中恢复到最新版本
 
+---
+####远程仓库，连接github####
+- 在C盘user文件下寻找是否含有.ssh目录，该目录下有没有id_rsa,id_rsa.pub文件
+- 如果没有的话，在shell中创建ssh key
+- $ ssh-keygen -t rsa -C "a@a.com"
+- 一路回车，默认
+- 此时在.ssh目录下会有这两个文件，其中id.rsa.pub是公钥，复制其中内容
+- 登录github中，打开个人设置里的ssh keys,"Add SSH Kye",在文本框里粘贴。
+- 名字可以设定为你当前办公环境，用以区分。
+ 
+- - -
+ 

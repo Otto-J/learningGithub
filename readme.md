@@ -1,4 +1,4 @@
-Github初学练习
+#Github初学练习#
 
 ###第一步 安装git###
 ####首先配置github环境。####
@@ -9,7 +9,7 @@ Github初学练习
     + git config --global user.name "myname"
     + git config --global user.email "web@web.com"
 
-####创建版本库####
+###创建版本库###
 - pwd 显示当前目录 cd 打开目录 mkdir filename新建目录
 - 注意如果遇到问题，有可能是目录的属性设置为只读，修改就可以。
 - 初始化git目录 git init,会显示Initialized empty Git repository in <file>/.git/
@@ -25,7 +25,8 @@ Github初学练习
 -  再 git commit -m""
 
 - - -
-####时光机回退####
+###时光机回退###
+####版本回退####
 - 版本控制系统会留有log，可以回退
 - git log 显示最近修改内容
 - git log --pretty=oneline 一行显示一次信息
@@ -40,7 +41,6 @@ Github初学练习
 - 想恢复到之前最新的话，需要把head 变成对应版本的数字前几位
 - git reflog是git用来记录每一次命令的，在这里可以看到之前最新版本的数字代码
 
-- - -
 ####工作区和暂存区####
 - 工作区Working Directory概念是指在硬盘上创建的git文件夹
 - 工作区里有一个.git隐藏目录，这个称之为git版本库
@@ -58,17 +58,17 @@ Github初学练习
 
 对于文件 myfile.txt
 
-① 修改后 未add（添加到暂存区） 需要撤销修改时：
+- 修改后 未add（添加到暂存区） 需要撤销修改时：
         git checkout -- myfile.txt 或 手动删除工作区修改
         工作区 ： clean  暂存区： clean
-② 修改后 add了（未commit） 再次修改文件  要撤销第二次修改时：
+- 修改后 add了（未commit） 再次修改文件  要撤销第二次修改时：
         git checkout -- myfile.txt (将暂存区恢复到工作区)
         暂存区有第一次的修改需要commit
-③ 修改后 add了（未commit），需要撤销修改时：
+- 修改后 add了（未commit），需要撤销修改时：
         git reset HEAD myfile.txt (将暂存区修改删除)
         此时工作区的修改还未撤销
         git checkout -- myfile.txt (撤销工作区修改)
-④ 修改后 add并commit了，需要撤销修改时：
+- 修改后 add并commit了，需要撤销修改时：
         git reset --hard HEAD^  (版本回退)
 
 - - - 
@@ -79,6 +79,8 @@ Github初学练习
 - git checkout -- test.txt 从版本库中恢复到最新版本
 
 ---
+###远程仓库###
+
 ####远程仓库，连接github####
 - 在C盘user文件下寻找是否含有.ssh目录，该目录下有没有id_rsa,id_rsa.pub文件
 - 如果没有的话，在shell中创建ssh key
@@ -119,4 +121,50 @@ $ git cloe git@github.com:帐户名/aa.git
 - git支持多种协议，ssh比https速度更快
 
 ---
+###分支管理###
+分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
 
+现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作
+
+####创建与合并分支####
+- 创建 dev分支，然后切换到dev分支
+```
+git checkout -b dev
+Switched to a new branch 'dev'
+```
+checkout -b 表示创建并切换，相当于两条命令：
+```
+git branch dev
+git checkout dev
+Switched to branch 'dev'
+```
+- 用 git branch 来查看当前分支
+```
+git branch
+*dev
+master
+```
+- git branch命令会列出所有分支，当前分支会标一个'*'
+- 此时可以正常code
+- dev分支完成之后，可以切回master分支
+```
+git checkout master
+Switched to branch 'master'
+```
+master分支此刻的提交点还没有变化，还需要把dev的成果合并到master分支上
+```
+git merge dev
+```
+- git merge命令用于合并，并指定分支到当前分支。此时有一个 fast-forward 此次合并是快进模式
+- 此时可以删除dev分支了 git branch -d dev
+- 查看git branch，只剩下master了
+
+总结：
+- git branch查看分支
+- git branch <neme> 创建分支
+- git checkout <name>切换分支
+- git checkout -b <name>创建+切换分支
+- git merge <name> 合并某分支到当前分支
+- git branch -d <name>删除分支
+
+---

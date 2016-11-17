@@ -1,6 +1,7 @@
 #Github初学练习#
 
 >备注快速指令一览：
+
 - git add readme.md
 - git commit -m "update some code"
 - git reset --hard HEAD^  head可以用小写
@@ -21,6 +22,7 @@
 ---
 ###第一步 安装git###
 >首先配置github环境。
+
 - 从 https://git-for-windows.github.io 下载msysgit;
 - 默认安装
 - 从安装路径中打开 "Git"->"Git Bash"，弹出一个命令行，说明git安装完成
@@ -29,6 +31,7 @@
     + git config --global user.email "web@web.com"
 
 >创建版本库repository
+
 - pwd 显示当前目录 cd 打开目录 mkdir filename新建目录
 - 注意如果遇到问题，有可能是目录的属性设置为只读，修改就可以。
 - 初始化git目录 git init,会显示Initialized empty Git repository in <file>/.git/
@@ -46,6 +49,7 @@
 - - -
 ###时光机回退###
 >版本回退
+
 - 版本控制系统会留有log，可以回退
 - git log 显示最近修改内容
 - git log --pretty=oneline 一行显示一次信息
@@ -61,6 +65,7 @@
 - git reflog是git用来记录每一次命令的，在这里可以看到之前最新版本的数字代码
 
 >工作区和暂存区
+
 - 工作区Working Directory概念是指在硬盘上创建的git文件夹
 - 工作区里有一个.git隐藏目录，这个称之为git版本库
 - Git版本库里存了很多东西，比较重要的是stage或者index的暂存区
@@ -69,10 +74,12 @@
 - 需要提交的文件先放在暂存区，咱后暂存区一次性提交所有修改
 
 >管理修改
+
 - 先add，在commit。如果先add了，继续修改，在commit，不会增加修改内容，原因是暂存区里没有修改后的add
 
 - - -
 >撤销修改
+
 - git checkout --file可以discard changes in working directory丢弃工作区的修改
 
 对于文件 myfile.txt
@@ -92,6 +99,7 @@
 
 - - - 
 >删除文件
+
 - 将待删除文件 rm test.txt
 - 通过git status可以看到以下两个选项
 - git rm test.txt 从版本库中也删除
@@ -101,6 +109,7 @@
 ###远程仓库###
 
 >远程仓库，连接github
+
 - 在C盘user文件,打开用户名文件夹，寻找是否含有.ssh目录，该目录下有没有id_rsa,id_rsa.pub文件
 - 如果没有的话，在shell中创建ssh key
 - $ ssh-keygen -t rsa -C "a@a.com"
@@ -110,7 +119,9 @@
 - 名字可以设定为你当前办公环境，用以区分。
  
 - - -
+
 >添加远程库
+
 - 在github中新建仓库 create a new repo
 - 输入相关信息，点击新建仓库
 - 接下俩把本地仓库推送到github
@@ -131,6 +142,7 @@ $ git push origin master
 
 - - -
 >从远程库克隆
+
 - 现在github上新建仓库 aa
 - 在本地使用
 ```
@@ -141,21 +153,26 @@ $ git clone git@github.com:帐户名/aa.git
 
 ---
 ###分支管理###
+
 分支在实际中有什么用呢？假设你准备开发一个新功能，但是需要两周才能完成，第一周你写了50%的代码，如果立刻提交，由于代码还没写完，不完整的代码库会导致别人不能干活了。如果等代码全部写完再一次提交，又存在丢失每天进度的巨大风险。
 
 现在有了分支，就不用怕了。你创建了一个属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样，既安全，又不影响别人工作
 
 >创建与合并分支
+
 - 创建 dev分支，然后切换到dev分支
+
 ```
 git checkout -b dev
 ```
+
 checkout -b 表示创建并切换，相当于两条命令：
 ```
 git branch dev
 git checkout dev
 ```
 - 用 git branch 来查看当前分支
+
 ```
 git branch
 *dev

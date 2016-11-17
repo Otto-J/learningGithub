@@ -28,7 +28,7 @@
     + git config --global user.name "myname"
     + git config --global user.email "web@web.com"
 
-###创建版本库###
+###创建版本库repository###
 - pwd 显示当前目录 cd 打开目录 mkdir filename新建目录
 - 注意如果遇到问题，有可能是目录的属性设置为只读，修改就可以。
 - 初始化git目录 git init,会显示Initialized empty Git repository in <file>/.git/

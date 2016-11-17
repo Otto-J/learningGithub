@@ -82,7 +82,7 @@
 ###远程仓库###
 
 ####远程仓库，连接github####
-- 在C盘user文件下寻找是否含有.ssh目录，该目录下有没有id_rsa,id_rsa.pub文件
+- 在C盘user文件,打开用户名文件夹，寻找是否含有.ssh目录，该目录下有没有id_rsa,id_rsa.pub文件
 - 如果没有的话，在shell中创建ssh key
 - $ ssh-keygen -t rsa -C "a@a.com"
 - 一路回车，默认
@@ -115,9 +115,9 @@ $ git push origin master
 - 现在github上新建仓库 aa
 - 在本地使用
 ```
-$ git cloe git@github.com:帐户名/aa.git
+$ git clone git@github.com:帐户名/aa.git
 ```
-
+- git clone的地址可以使用Clone or download 来找到
 - git支持多种协议，ssh比https速度更快
 
 ---

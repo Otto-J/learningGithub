@@ -21,7 +21,7 @@
 
 ---
 ###第一步 安装git###
->首先配置github环境。
+>首先配置git环境。
 
 - 从 https://git-for-windows.github.io 下载msysgit;
 - 默认安装
@@ -203,3 +203,41 @@ git merge dev
 
 ---
 我在dev分支内容里追加了这条信息。
+
+> bug分支
+
+正在dev分支上进行工作，bug出现，需要尽快解决问题。这时候需要修改新分支上的内容，此时的分支还不完整，也不能提交。
+这时候需要用到
+```
+git stash
+```
+通过建立新分支解决问题，修复完成之后，
+```
+git stash list
+```
+查看临时存储的内容，两个方法进行恢复。
+
+- git stash apply进行恢复，同时还需要销毁临时存储的东西，git stash drop
+
+- git stash pop 恢复的同时，也删除内容
+
+总结：git stash ==>  git stash pop
+
+> 强制删除分支
+
+如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+
+>引入tag，代替无意义的代号
+
+git tag -a [tagname] -m [tag-content] [id]
+git show [tagname]
+git tag -d [tagname] 删除
+git push origin <tagname> 推送一个tag
+git push origin --tags
+
+美化版git log
+```
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+

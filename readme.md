@@ -1,5 +1,24 @@
 #Github初学练习#
 
+###备注快速指令一览：###
+- git add readme.md
+- git commit -m "update some code"
+- git reset --hard HEAD^  head可以用小写
+- 想恢复到之前最新的话，需要把head 变成对应版本的数字前几位
+- git log --pretty=oneline 一行显示一次信息
+- git reflog是git用来记录每一次命令的，在这里可以看到之前最新版本的数字代码
+- $ git push origin master 提交到github
+- $ git clone git@github.com:帐户名/aa.git
+- git branch查看分支
+- git branch <neme> 创建分支
+- git checkout <name>切换分支
+- git checkout -b <name>创建+切换分支
+- git merge <name> 合并某分支到当前分支
+- git branch -d <name>删除分支
+
+- 2016.11.17
+
+---
 ###第一步 安装git###
 ####首先配置github环境。####
 - 从 https://git-for-windows.github.io 下载msysgit;
@@ -22,7 +41,7 @@
 -  git status 会得到提示，修改了那些内容
 -  git diff 会得到提示，上次修改了什么内容
 -  修改完成后，需要git add
--  再 git commit -m""
+-  再 git commit -m"" 
 
 - - -
 ###时光机回退###

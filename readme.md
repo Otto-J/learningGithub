@@ -1,5 +1,6 @@
 #Github初学练习#
 
+##从入门到放弃##
 >备注快速指令一览：
 
 - git add readme.md
